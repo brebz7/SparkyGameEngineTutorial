@@ -25,8 +25,7 @@ namespace sparky { namespace graphics {
 			std::cout << "Failed to initialize GLFW" << std::endl;
 			return false;
 		}
-		else
-			std::cout << "Success" << std::endl;
+
 		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
 		if (!m_Window)
 		{
@@ -35,6 +34,14 @@ namespace sparky { namespace graphics {
 		}
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowSizeCallback(m_Window, windowResize);
+
+		if (glewInit() != GLEW_OK)
+		{
+			std::cout << "Could not initialize GLEW!" << std::endl;
+			return false;
+		}
+
+		//std::cout << "OpenGL" << glGetString(GL_VERSION) << std::endl;
 		return true;
 	}
 
