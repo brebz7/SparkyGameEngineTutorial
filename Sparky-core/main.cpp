@@ -19,7 +19,7 @@ int main()
 	vec4 b(2.0f, 4.0f, 6.0f, 1.0f);
 
 	vec4 c = a * b;
-
+	mat4 position = mat4::translation(vec3(2, 3, 4));
 	while (!window.closed())
 	{
 		window.clear();	
